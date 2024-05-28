@@ -30,7 +30,7 @@ export class Component1 {
       });
       const entry = `${this.currentInput} = ${result}`;
       this.historyService.addToHistory(entry);
-      this.currentInput = ''; // Limpiar el campo de entrada
+      this.currentInput = '';
     } catch {
       this.currentInput = 'Error';
     }
