@@ -1,0 +1,59 @@
+.menu, .calculator, .history {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .navbar-toggler, h1 {
+    display: none !important;
+  }
+
+  .navbar-collapse {
+    display: block !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-toggler {
+    display: block !important;
+  }
+
+
+}
+
+
+.list-group-item.active {
+  background-color: blue;
+  color: white;
+}
+
+.list-group-item {
+  color: blue;
+}
+
+#display {
+  text-align: right;
+  flex: none;
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
+.btn {
+  margin-top: 5px;
+  margin-right: 5px;
+  font-size: 1rem;
+  background-color: #eeeeee;
+  border: none;
+}
+
+
+.btn-primary {
+  background-color: blue;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #c0c0c0;
+  color: rgb(0, 0, 0);
+}

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CalculatorModule } from './components/calculator.module';
 
 import { AppComponent } from './app.component';
+import { ComponentModule } from './components/components.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    CalculatorModule,
+    ComponentModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
