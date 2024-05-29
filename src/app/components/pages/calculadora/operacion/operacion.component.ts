@@ -1,13 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, SimpleChanges } from '@angular/core';
 import { HistoryService } from '../../../../services/history.service';
 import { evaluate } from 'mathjs';
+
 
 @Component({
   selector: 'app-operacion',
   templateUrl: './operacion.component.html',
   styleUrls: ['./operacion.component.css']
 })
-export class OperacionComponent {
+export class OperacionComponent implements OnChanges{
+
+  ngOnChanges( s: SimpleChanges ){
+    this.revisarOperadores();
+
+  }
+
+
+revisarOperadores() {
+
+   if (['+', '-', '*', '/'].includes( this.currentInput[this.currentInput.length-1] )
+    && ['+', '-', '*', '/'].includes( this.currentInput[this.currentInput.length-2] )){
+
+      this.currentInput = this.currentInput.substring(0,this.currentInput.length-3) + this.currentInput[this.currentInput.length-1];
+
+  }
+  console.log('Hola: ' +this.currentInput[this.currentInput.length-1] )
+
+
+}
   currentInput: string = '';
   resultShown: boolean = false;
 
@@ -41,7 +61,6 @@ export class OperacionComponent {
       this.currentInput += value;
     }
 }
-
 
 
   calculateResult() {

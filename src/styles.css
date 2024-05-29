@@ -6,6 +6,11 @@ html, body {
   flex-direction: column;
 }
 
+#Historial{
+  max-height: 500px;
+  overflow-y: auto;
+}
+
 .container-fluid {
   flex: 1;
   display: flex;
