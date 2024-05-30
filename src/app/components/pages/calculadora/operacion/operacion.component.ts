@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { HistoryService } from '../../../../services/history.service';
 import { evaluate } from 'mathjs';
 
@@ -8,26 +8,27 @@ import { evaluate } from 'mathjs';
   templateUrl: './operacion.component.html',
   styleUrls: ['./operacion.component.css']
 })
-export class OperacionComponent implements OnChanges{
+export class OperacionComponent{
 
-  ngOnChanges( s: SimpleChanges ){
-    this.revisarOperadores();
 
-  }
+operadoresUnicos(){
 
+}
 
 revisarOperadores() {
 
    if (['+', '-', '*', '/'].includes( this.currentInput[this.currentInput.length-1] )
     && ['+', '-', '*', '/'].includes( this.currentInput[this.currentInput.length-2] )){
 
-      this.currentInput = this.currentInput.substring(0,this.currentInput.length-3) + this.currentInput[this.currentInput.length-1];
+      this.currentInput = this.currentInput.substring(0,this.currentInput.length-2) + this.currentInput[this.currentInput.length-1];
 
   }
   console.log('Hola: ' +this.currentInput[this.currentInput.length-1] )
 
 
 }
+
+
   currentInput: string = '';
   resultShown: boolean = false;
 
@@ -41,11 +42,13 @@ revisarOperadores() {
 
     if (value === '=') {
       this.calculateResult();
-    } else if (['+', '-', '*', '/'].includes(value)) {
+    } else if (['+' , '*', '%', '/'].includes(value)) {
       if (value === '-' && this.currentInput.endsWith('-')) {
         this.currentInput = this.currentInput.slice(0, -1);
       } else {
-        this.currentInput += ` ${value} `;
+        this.currentInput += `${value}`;
+        this.revisarOperadores();
+
       }
     } else if (value === '+/-') {
       if (this.currentInput.startsWith('-')) {
@@ -60,6 +63,7 @@ revisarOperadores() {
     } else {
       this.currentInput += value;
     }
+
 }
 
 

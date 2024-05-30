@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { OperacionComponent } from './operacion/operacion.component';
 import { HistorialComponent } from './historial/historial.component';
-import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +12,6 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule,
 
   ],
   exports: [
