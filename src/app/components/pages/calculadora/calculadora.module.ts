@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { OperacionComponent } from './operacion/operacion.component';
 import { HistorialComponent } from './historial/historial.component';
+import { CalculadoraComponent } from './calculadora.component';
 
 
 @NgModule({
   declarations: [
     OperacionComponent,
-    HistorialComponent
+    HistorialComponent,
+    CalculadoraComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { HistorialComponent } from './historial/historial.component';
   ],
   exports: [
     OperacionComponent,
-    HistorialComponent
+    HistorialComponent,
+    CalculadoraComponent
   ]
 })
 export class CalculadoraModule { }

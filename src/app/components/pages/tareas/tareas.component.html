@@ -1,0 +1,20 @@
+<div class="row border col-12" style="background-color: rgb(249, 69, 177);">
+  <div class="row col-6" style="background-color: rgb(206, 255, 127);">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-12 border">
+      <div class="p-3">
+        <app-lista [listaTareas]="listaTareas"></app-lista>
+      </div>
+      <p class="p-3 h4 text-center mt-auto"><strong>Lista.component</strong></p>
+    </div>
+  </div>
+
+  <div class="row col-6" style="background-color: rgb(127, 255, 136);">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-12 border">
+      <div class="p-3">
+        <app-formulario (tareaGuardada)="agregarTarea($event)"></app-formulario>
+      </div>
+      <p class="p-3 h4 text-center mt-auto"><strong>Formulario.component</strong></p>
+    </div>
+  </div>
+  <p class="p-3 h4 text-center mt-auto"><strong>Tareas.component</strong></p>
+</div>

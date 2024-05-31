@@ -9,10 +9,10 @@
       </div>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="list-group w-100">
-          <li class="list-group-item" [class.active]="activePage=='home'" (click)="setActive('home')">Home</li>
-          <li class="list-group-item" [class.active]="activePage=='calculadora'" (click)="setActive('calculadora')">Calculadora</li>
-          <li class="list-group-item" [class.active]="activePage=='tareas'" (click)="setActive('tareas')">Tareas</li>
-          <li class="list-group-item" [class.active]="activePage=='ajustes'" (click)="setActive('ajustes')">Ajustes</li>
+          <li routerLink="home" routerLinkActive="active" class="list-group-item" >Home</li>
+          <li routerLink="calculadora" routerLinkActive="active" class="list-group-item">Calculadora</li>
+          <li routerLink="tareas" routerLinkActive="active" class="list-group-item">Tareas</li>
+          <!--<li routerLink="ajustes" routerLinkActive="active" class="list-group-item">Ajustes</li>-->
         </ul>
       </div>
     </div>

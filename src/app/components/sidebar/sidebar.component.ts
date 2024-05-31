@@ -6,18 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './sidebar.component.css'
 })
 export class SideBarComponent {
-  public activePage: string = 'home';
-  public title: string = 'Home';
+  public title: string = '';
 
-  private titles: { [title: string]: string } = {
-    home: 'Home',
-    calculadora: 'Calculadora',
-    tareas: 'Tareas',
-    ajustes: 'Ajustes'
-  };
 
-  public setActive(page: string) {
-    this.activePage = page;
-    this.title = this.titles[page] || 'Home';
-  }
 }

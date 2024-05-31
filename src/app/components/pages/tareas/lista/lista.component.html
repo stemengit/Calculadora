@@ -1,0 +1,24 @@
+<div class="row" style="background-color: blanchedalmond;" >
+  <div class="p-3" id="Home">
+    <h1 class="text-center mt"><strong>{{ CapitalizatedTitle }}</strong></h1>
+  </div>
+  <div class=" mx-auto">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        + Nueva tarea
+      </button>
+        </div>
+  <ul class="list-group mt-2">
+    <li
+    *ngFor="let tarea of listaTareas; let i = index"
+     class="list-group-item"><strong>{{ tarea.titulo }}</strong>: {{ tarea.descripcion }}
+     <i class="bi bi-trash" (click)="eliminarTarea(i)"></i>
+     <i class="bi bi-pencil"></i>
+    </li>
+  </ul>
+
+  </div>
+  <p class="p-3 h4 text-center mt-auto"><strong>Lista.component</strong></p>
+
+</div>
+

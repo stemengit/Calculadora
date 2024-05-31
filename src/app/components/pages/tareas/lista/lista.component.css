@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+
+
+
+.list-group-item i {
+  cursor: pointer;
+}
+
+.list-group-item i:first-child {
+  margin-left: 40px;
+}
+
+

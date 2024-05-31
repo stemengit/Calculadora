@@ -1,12 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CalculadoraModule } from './calculadora/calculadora.module';
+import { HomeModule } from './home/home.module';
+import { TareasModule } from './tareas/tareas.module';
 
 @NgModule({
   imports: [
-    CalculadoraModule
+    CalculadoraModule,
+    HomeModule,
+    TareasModule
   ],
   exports: [
-    CalculadoraModule
+    CalculadoraModule,
+    HomeModule,
+    TareasModule
+
   ]
 })
 export class PagesModule { }
