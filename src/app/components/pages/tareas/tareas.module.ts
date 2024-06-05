@@ -6,6 +6,8 @@ import { ListaComponent } from './lista/lista.component';
 import { TareasComponent } from './tareas.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { FormsModule } from '@angular/forms';
+import { BorrarComponent } from './borrar/borrar.component';
+import { EditarComponent } from './editar/editar.component';
 
 @NgModule({
   imports: [
@@ -15,12 +17,17 @@ import { FormsModule } from '@angular/forms';
   exports: [
     TareasComponent,
     ListaComponent,
-    FormularioComponent
+    FormularioComponent,
+    BorrarComponent,
+    EditarComponent
   ],
   declarations: [
     TareasComponent,
     ListaComponent,
-    FormularioComponent
+    FormularioComponent,
+    BorrarComponent,
+    EditarComponent
+
   ],
 })
 export class TareasModule { }

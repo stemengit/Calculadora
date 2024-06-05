@@ -1,0 +1,29 @@
+<div class="modal fade border" id="editarTarea" tabindex="-1" aria-labelledby="EditarTareaLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editarTareaLabel">Editar Tarea</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body">
+          <div class="mb-2">
+            <label class="form-label" for="titulo">Nuevo Título:</label>
+            <input type="text" class="form-control" id="titulo" required placeholder="Nuevo título de su tarea:" [(ngModel)]="titulo" >
+          </div>
+          <div class="mb-4">
+            <label class="form-label" for="descripcion">Nueva Descripción:</label>
+            <input type="text" class="form-control" required id="descripcion" placeholder="Nueva descripción de su tarea:" [(ngModel)]="descripcion" >
+          </div>
+        </div>
+          <div class="modal-footer d-grid gap-2 d-md-block text-center">
+            <button type="button" class="btn btn-secondary" style="width: 210px;" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-success" style="width: 210px;" data-bs-dismiss="modal"  [disabled]="!titulo || !descripcion">Editar</button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p class="p-3 h4 text-center mt-auto"><strong>Editar.component</strong></p>
+

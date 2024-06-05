@@ -1,63 +1,27 @@
-<div class="modal fade border " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+<div class="modal fade border" id="nuevaTarea" tabindex="-1" aria-labelledby="nuevaTareaLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Nueva Tarea</h1>
+        <h1 class="modal-title fs-5" id="nuevaTareaLabel">Nueva Tarea</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-
       <div class="modal-body">
-
         <div class="card-body">
           <div class="mb-2">
-            <label class="form-label">
-              Titulo:
-            </label>
-            <input type="text" class="form-control" placeholder="Titulo de su tarea:" [(ngModel)]="titulo">
+            <label class="form-label" for="titulo">Título:</label>
+            <input type="text" class="form-control" id="titulo" required placeholder="Título de su tarea:" [(ngModel)]="titulo" >
+          </div>
+          <div class="mb-4">
+            <label class="form-label" for="descripcion">Descripción:</label>
+            <input type="text" class="form-control" required id="descripcion" placeholder="Descripción de su tarea:" [(ngModel)]="descripcion" >
           </div>
         </div>
-
-        <div class="mb-4">
-          <label class="form-label">
-            Descripción:
-          </label>
-          <input type="text" class="form-control" placeholder="Descripción de su tarea:" [(ngModel)]="descripcion">
-        </div>
-
-        <div class="modal-footer d-grid gap-2 d-md-block text-center">
-          <button type="button" class="btn btn-secondary " style="width: 210px;"  data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary " style="width: 210px;" data-bs-dismiss="modal" (click)="save()">Guardar</button>
-        </div>
+          <div class="modal-footer d-grid gap-2 d-md-block text-center">
+            <button type="button" class="btn btn-secondary" style="width: 210px;" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary" style="width: 210px;" data-bs-dismiss="modal" (click)="save()" [disabled]="!titulo || !descripcion">Guardar</button>
+          </div>
       </div>
     </div>
   </div>
-
-
-
-  <!--
-          <input type="text" placeholder="Input 1" [(ngModel)]="input1">
-
-
-
-<div class="card-body">
-<div class="mb-2">
-        <label class="form-label">
-          Titulo:
-        </label>
-        <input type="text" class="form-control" placeholder="Titulo de su tarea:" >
-      </div>
-
-      <div class="mb-4">
-        <label class="form-label">
-          Descripción:
-        </label>
-        <input type="text" class="form-control" placeholder="Descripción de su tarea:" >
-      </div>
-
-      <div class="d-grid gap-2 d-md-block">
-        <button class="btn btn-secondary" data-bs-dismiss="modal" style="width: 120px; margin-right: 7px;"  type="button">Cancelar</button>
-        <button class="btn btn-primary "   style="width: 120px;" type="button">Guardar</button>
-      </div>
-    </div>
-
--->
+</div>
+<p class="p-3 h4 text-center mt-auto"><strong>Formulario.component</strong></p>

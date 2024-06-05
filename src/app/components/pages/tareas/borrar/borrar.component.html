@@ -1,0 +1,22 @@
+<div class="modal fade border" id="borrarTarea" tabindex="-1" aria-labelledby="borrarTareaLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="borrarTareaLabel">Borrar Tarea</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body">
+          <div class="mb-2">
+            <p>¿Estás seguro de que quieres borrar esta tarea?</p>
+          </div>
+          <div class="d-grid gap-2 d-md-block text-center" *ngFor="let tarea of listaTareas; let i = index">
+            <button type="button" class="btn btn-secondary" style="width: 210px; margin: 5px;" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-danger" style="width: 210px;" data-bs-dismiss="modal" (click)="eliminarTarea(i)">Borrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="p-3 h4 text-center mt-auto"><strong>Borrar.component</strong></p>
