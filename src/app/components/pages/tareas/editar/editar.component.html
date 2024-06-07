@@ -18,7 +18,7 @@
         </div>
           <div class="modal-footer d-grid gap-2 d-md-block text-center">
             <button type="button" class="btn btn-secondary" style="width: 210px;" data-bs-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-success" style="width: 210px;" data-bs-dismiss="modal"  [disabled]="!titulo || !descripcion">Editar</button>
+            <button type="submit" class="btn btn-success" style="width: 210px;" data-bs-dismiss="modal"  [disabled]="!titulo || !descripcion" (click)="edit()">Editar</button>
           </div>
       </div>
     </div>
@@ -26,4 +26,8 @@
 </div>
 
 <p class="p-3 h4 text-center mt-auto"><strong>Editar.component</strong></p>
+<p class="h6 text-center">&#64;Input() set tareaSeleccionarEdicion</p>
+<p class="h6 text-center">&#64; Output() notificacionAceptarEdicion</p>
+
+
 

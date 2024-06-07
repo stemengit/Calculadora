@@ -2,8 +2,6 @@
   display: block;
 }
 
-
-
 .list-group-item span {
   cursor: pointer;
   border: 1px;
@@ -14,7 +12,6 @@
   padding: 5px;
 }
 
-
 .tarea{
   float: left;
     max-width: 150px !important;
@@ -23,21 +20,28 @@
     overflow: hidden;
 }
 
-
-
 .acciones{
   float: right;
 }
 
 abbr[title] {
   text-decoration: none;
+  cursor: pointer !important;
 }
 
 abbr[title]:hover {
-  text-decoration: underline;
   text-decoration-color: #666;
   }
 
+  .tarea-completada {
+    background-color: green;
+}
+
+.tarea-no-completada {
+    background-color: red;
+}
+
+/*
 abbr[title]:hover::after {
   content: attr(title);
   position: absolute;
@@ -51,22 +55,7 @@ abbr[title]:hover::after {
   z-index: 1;
 }
 
-/*
-.form-check-label abbr[title]::after {
-  content: attr(title);
-  position: absolute;
-  background-color: #333;
-  color: #fff;
-  border-radius: 5px;
-  opacity: 0;
-  transition: opacity 0.5s, transform 0.4s;
-}
-
-.form-check-label abbr[title]:hover::after {
-  opacity: 1;
-}
 */
-
 
 
 

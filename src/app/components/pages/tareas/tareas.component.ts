@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-tareas',
   templateUrl: './tareas.component.html'
 })
 export class TareasComponent implements OnInit {
-  public listaTareas: { id: number, titulo: string, descripcion: string }[] = [];
+
+  public listaTareas: { id: number, titulo: string, descripcion: string, completada: boolean }[] = [];
+
+  constructor(private renderer: Renderer2) { }
 
   ngOnInit() {
     const tareasGuardadas = JSON.parse(localStorage.getItem('tareas') || '[]');
@@ -13,29 +16,33 @@ export class TareasComponent implements OnInit {
   }
 
   agregarTarea(tarea: { id: number, titulo: string, descripcion: string }) {
-    this.listaTareas.push(tarea);
+    const nuevaTarea = { ...tarea, completada: false };
+    this.listaTareas.push(nuevaTarea);
     localStorage.setItem('tareas', JSON.stringify(this.listaTareas));
   }
 
-  borrarTarea(index: number) {
-    this.listaTareas.splice(index, 1);
+  borrarTarea(id: number) {
+    this.listaTareas = this.listaTareas.filter(element => element.id != id);
     localStorage.setItem('tareas', JSON.stringify(this.listaTareas));
   }
 
-  editarTarea(tarea: { id: number, titulo: string, descripcion: string }) {
-    const index = this.listaTareas.findIndex(t => t.id === tarea.id);
+  editarTarea(tarea: { id: number, titulo: string, descripcion: string, completada: boolean }) {
+    this.listaTareas = this.listaTareas.map(element => {
+      if (element.id == tarea.id) element = tarea;
+      return element;
+    });
+    localStorage.setItem('tareas', JSON.stringify(this.listaTareas));
+  }
 
-    if (index !== -1) {
-      this.listaTareas[index] = tarea;
-
-      localStorage.setItem('tareas', JSON.stringify(this.listaTareas));
-    } else {
-      console.error('La tarea no existe en la lista.');
+  actualizarEstadoTarea(tareaId: number, completada: boolean) {
+    const tarea = this.listaTareas.find(t => t.id === tareaId);
+    if (tarea) {
+        tarea.completada = completada;
+        localStorage.setItem('tareas', JSON.stringify(this.listaTareas));
     }
-  }
-
-
+}
 
 
 
 }
+

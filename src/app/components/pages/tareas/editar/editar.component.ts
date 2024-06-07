@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { boolean } from 'mathjs';
 
 @Component({
   selector: 'app-editar',
@@ -7,14 +8,25 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './editar.component.css',
 })
 export class EditarComponent {
-  @Input() titulo: string = '';
-  @Input() descripcion: string = '';
-  @Input() listaTareas: { id:number, titulo: string, descripcion: string }[] = [];
-  @Output() tareaEditada = new EventEmitter<{ id:number, titulo: string, descripcion: string }>();
+
+  titulo: string = '';
+  descripcion: string = '';
+  id: undefined | number = undefined;
+  completada: boolean = false
+
+  @Input() set tareaSeleccionarEdicion(value: undefined | { id:number, titulo: string, descripcion: string, completada:boolean } ) {
+    if (value){
+    this.titulo = value.titulo;
+    this.descripcion = value.descripcion;
+    this.id = value.id;
+    this.completada = value.completada
+  }
+}
+  @Output() notificacionAceptarEdicion = new EventEmitter<{ id:number, titulo: string, descripcion: string, completada:boolean }>();
 
 
-  edit(tarea: { id: number, titulo: string, descripcion: string }) {
-    this.tareaEditada.emit(tarea);
+  edit() {
+    this.notificacionAceptarEdicion.emit({ id: this.id! , titulo: this.titulo, descripcion: this.descripcion, completada: this.completada });
     this.titulo = '';
     this.descripcion = '';
   }

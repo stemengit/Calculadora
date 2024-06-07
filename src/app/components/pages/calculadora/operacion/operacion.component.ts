@@ -42,14 +42,16 @@ export class OperacionComponent {
       this.currentInput = (parseFloat(this.currentInput) * 0.01).toString();
       return;
     }
+    if (value === '+/-') {
+      this.currentInput = this.currentInput.replace(/\d+$/, match => `-${match}`);
+      return;
+    }
     if (value === 'AC') {
       this.currentInput = '';
       return;
     }
 
       this.currentInput += value;
-
-
   }
 
 

@@ -6,11 +6,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './borrar.component.css',
 })
 export class BorrarComponent {
-  @Input() listaTareas: { id:number, titulo: string, descripcion: string }[] = [];
-  @Output() borrarTarea = new EventEmitter<number>();
 
-  eliminarTarea(index: number): void {
-    this.borrarTarea.emit(index);
+  @Input() tareaSeleccionarBorrado:undefined | { id:number, titulo: string, descripcion: string, completada:boolean } = undefined;
+  @Output() notificacionAceptarBorrado = new EventEmitter<number>();
+
+  eliminarTarea(): void {
+    this.notificacionAceptarBorrado.emit(this.tareaSeleccionarBorrado!.id);
+    console.log(this.tareaSeleccionarBorrado?.id)
   }
 
 }
