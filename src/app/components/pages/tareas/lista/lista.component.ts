@@ -7,7 +7,7 @@ import { Component, Input, Output, EventEmitter, Renderer2 } from '@angular/core
 })
 export class ListaComponent {
 
-  public tareaSeleccionada: undefined | { id: number, titulo: string, descripcion: string, completada :boolean } = undefined;
+  public tareaSeleccionada: undefined | { id: number, titulo: string, descripcion: string, completada: boolean } = undefined;
 
 
   @Input() listaTareas: { id: number, titulo: string, descripcion: string, completada: boolean }[] = [];
@@ -15,7 +15,7 @@ export class ListaComponent {
   @Output() notificarNuevaTarea = new EventEmitter<{ id: number, titulo: string, descripcion: string, completada: boolean }>();
   @Output() notificarEdicionTarea = new EventEmitter<{ id: number, titulo: string, descripcion: string, completada: boolean }>();
   @Output() notificarEliminacionTarea = new EventEmitter<number>();
-  @Output() estadoTareaActualizada = new EventEmitter<{id: number, completada: boolean}>();
+  @Output() notificarEstadoTareaActualizada = new EventEmitter<{ id: number, completada: boolean }>();
 
 
 
@@ -27,7 +27,7 @@ export class ListaComponent {
     this.notificarEliminacionTarea.emit($event)
   }
 
-  editarTareaLista($event: { id: number; titulo: string; descripcion: string; completada: boolean;}) {
+  editarTareaLista($event: { id: number; titulo: string; descripcion: string; completada: boolean; }) {
     this.notificarEdicionTarea.emit($event)
   }
 
@@ -38,8 +38,8 @@ export class ListaComponent {
   estadoTarea(event: Event, tareaId: number): void {
     const checkbox = event.target as HTMLInputElement;
     const completada = checkbox.checked;
-    this.estadoTareaActualizada.emit({ id: tareaId, completada });
-}
+    this.notificarEstadoTareaActualizada.emit({ id: tareaId, completada });
+  }
 
   get CapitalizatedTitle(): string {
     return this.title.toUpperCase();

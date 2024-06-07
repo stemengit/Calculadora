@@ -7,7 +7,7 @@
       [listaTareas]="listaTareas" (notificarNuevaTarea)="agregarTarea($event)"
       (notificarEliminacionTarea)="borrarTarea($event)"
       (notificarEdicionTarea)="editarTarea($event)"
-      [listaTareas]="listaTareas" (estadoTareaActualizada)="actualizarEstadoTarea($event.id, $event.completada)"
+      [listaTareas]="listaTareas" (notificarEstadoTareaActualizada)="actualizarEstadoTarea($event.id, $event.completada)"
       >
     </app-lista>
     </div>
