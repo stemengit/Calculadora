@@ -15,7 +15,7 @@ export class ListaComponent {
   @Output() notificarNuevaTarea = new EventEmitter<{ id: number, titulo: string, descripcion: string, completada: boolean }>();
   @Output() notificarEdicionTarea = new EventEmitter<{ id: number, titulo: string, descripcion: string, completada: boolean }>();
   @Output() notificarEliminacionTarea = new EventEmitter<number>();
-  @Output() notificarEstadoTareaActualizada = new EventEmitter<{ id: number, completada: boolean }>();
+  @Output() notificarEstadoTarea = new EventEmitter<{ id: number, completada: boolean }>();
 
 
 
@@ -38,7 +38,7 @@ export class ListaComponent {
   estadoTarea(event: Event, tareaId: number): void {
     const checkbox = event.target as HTMLInputElement;
     const completada = checkbox.checked;
-    this.notificarEstadoTareaActualizada.emit({ id: tareaId, completada });
+    this.notificarEstadoTarea.emit({ id: tareaId, completada });
   }
 
   get CapitalizatedTitle(): string {
