@@ -1,0 +1,28 @@
+<div id="tamaño">
+  <div class="btn-group" role="group" aria-label="Basic tamaño toggle button group">
+    <input type="radio" class="btn-check" name="btntamaño" id="btntamaño1" autocomplete="off" (change)="changeSize('tamaño1')" [checked]="isSizeSelected('tamaño1')">
+    <label class="btn btn-primary" for="btntamaño1">
+      <h4>Tamaño 1</h4>
+    </label>
+
+    <input type="radio" class="btn-check" name="btntamaño" id="btntamaño2" autocomplete="off" (change)="changeSize('tamaño2')" [checked]="isSizeSelected('tamaño2')">
+    <label class="btn btn-primary" for="btntamaño2">
+      <h5>Tamaño 2</h5>
+    </label>
+
+    <input type="radio" class="btn-check" name="btntamaño" id="btntamaño3" autocomplete="off" (change)="changeSize('tamaño3')" [checked]="isSizeSelected('tamaño3')">
+    <label class="btn btn-primary" for="btntamaño3">
+      <h6>Tamaño 3</h6>
+    </label>
+  </div>
+</div>
+
+<div id="tipo">
+  <div class="btn-group" role="group" aria-label="Basic tipo toggle button group">
+    <input type="radio" class="btn-check" name="btntipo" id="btntipo1" autocomplete="off" (change)="changeTipo('oscuro')" [checked]="isTipoSelected('oscuro')">
+    <label class="btn btn-primary" for="btntipo1">Oscuro</label>
+
+    <input type="radio" class="btn-check" name="btntipo" id="btntipo2" autocomplete="off" (change)="changeTipo('claro')" [checked]="isTipoSelected('claro')">
+    <label class="btn btn-primary" for="btntipo2">Claro</label>
+  </div>
+</div>

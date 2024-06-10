@@ -29,5 +29,44 @@ html, body {
 }
 
 
+.tamaño1 {
+  font-size: 12px;
+}
+
+.tamaño1 h1, .tamaño1 h2, .tamaño1 h3, .tamaño1 h4, .tamaño1 h5, .tamaño1 h6,
+.tamaño1 p, .tamaño1 div, .tamaño1 span, .tamaño1 a {
+  font-size: inherit;
+}
+
+.tamaño2 {
+  font-size: 16px;
+}
+
+.tamaño2 h1, .tamaño2 h2, .tamaño2 h3, .tamaño2 h4, .tamaño2 h5, .tamaño2 h6,
+.tamaño2 p, .tamaño2 div, .tamaño2 span, .tamaño2 a {
+  font-size: inherit;
+}
+
+.tamaño3 {
+  font-size: 20px;
+}
+
+.tamaño3 h1, .tamaño3 h2, .tamaño3 h3, .tamaño3 h4, .tamaño3 h5, .tamaño3 h6,
+.tamaño3 p, .tamaño3 div, .tamaño3 span, .tamaño3 a {
+  font-size: inherit;
+}
+
+.oscuro {
+  background-color: black;
+  color: white;
+}
+
+.claro {
+  background-color: #f0f0f0;
+  color: black;
+}
+
+
+
 
 

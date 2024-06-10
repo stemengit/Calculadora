@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CalculadoraComponent } from './components/pages/calculadora/calculadora.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { TareasComponent } from './components/pages/tareas/tareas.component';
+import { AjustesComponent } from './components/pages/ajustes/ajustes.component';
 
 const routes: Routes = [
   {
@@ -20,12 +21,12 @@ const routes: Routes = [
     path: 'tareas',
     component: TareasComponent
   },
-  /*
+
   {
     path: 'ajustes',
     component: AjustesComponent
   },
-  */
+
   {
     path: '**',
     redirectTo: 'home'
