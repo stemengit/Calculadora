@@ -1,3 +1,11 @@
 :host {
   display: block;
 }
+
+.tarea-completada {
+  background-color: green;
+}
+
+.tarea-no-completada {
+  background-color: red;
+}

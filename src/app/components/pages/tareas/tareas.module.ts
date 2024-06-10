@@ -7,7 +7,6 @@ import { TareasComponent } from './tareas.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { FormsModule } from '@angular/forms';
 import { BorrarComponent } from './borrar/borrar.component';
-import { EditarComponent } from './editar/editar.component';
 
 @NgModule({
   imports: [
@@ -19,14 +18,12 @@ import { EditarComponent } from './editar/editar.component';
     ListaComponent,
     FormularioComponent,
     BorrarComponent,
-    EditarComponent
   ],
   declarations: [
     TareasComponent,
     ListaComponent,
     FormularioComponent,
     BorrarComponent,
-    EditarComponent
 
   ],
 })

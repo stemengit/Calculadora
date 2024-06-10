@@ -36,18 +36,13 @@
   </div>
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 border" style="background-color: rgb(127, 255, 136);">
     <div class="p-3">
-      <app-formulario (tareaGuardada)="agregarTareaLista($event)"></app-formulario>
+      <app-formulario (tareaGuardada)="agregarTareaLista($event)" [tareaSeleccionarEdicion]="tareaSeleccionada" (notificacionAceptarEdicion)="editarTareaLista($event)"></app-formulario>
     </div>
   </div>
 
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 border" style="background-color: rgb(0, 215, 253);">
     <div class="p-3">
       <app-borrar [tareaSeleccionarBorrado]="tareaSeleccionada" (notificacionAceptarBorrado)="borrarTareaLista($event)"></app-borrar>
-    </div>
-  </div>
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 border" style="background-color: rgb(253, 249, 0);">
-    <div class="p-3">
-      <app-editar [tareaSeleccionarEdicion]="tareaSeleccionada" (notificacionAceptarEdicion)="editarTareaLista($event)"></app-editar>
     </div>
   </div>
 

@@ -9,24 +9,61 @@
         <div class="card-body">
           <div class="mb-2">
             <label class="form-label" for="titulo">Título:</label>
-            <input type="text" class="form-control" id="titulo" required placeholder="Título de su tarea:" [(ngModel)]="titulo" >
+            <input type="text" class="form-control" id="titulo" required placeholder="Título de su tarea:" [(ngModel)]="titulo">
           </div>
-          <div class="mb-4">
+          <div class="mb-2">
             <label class="form-label" for="descripcion">Descripción:</label>
-            <input type="text" class="form-control" required id="descripcion" placeholder="Descripción de su tarea:" [(ngModel)]="descripcion" >
+            <input type="text" class="form-control" id="descripcion" required placeholder="Descripción de su tarea:" [(ngModel)]="descripcion">
+          </div>
+          <div class="mb-4" >
+            <label class="form-label mx-2" for="completada" >Completada:</label>
+            <input type="checkbox" class="form-check-input" id="completada" [(ngModel)]="completada">
           </div>
         </div>
-          <div class="modal-footer d-grid gap-2 d-md-block text-center">
-            <button type="button" class="btn btn-secondary" style="width: 210px;" data-bs-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-primary" style="width: 210px;" data-bs-dismiss="modal" (click)="save()" [disabled]="!titulo || !descripcion">Guardar</button>
-          </div>
+        <div class="modal-footer d-grid gap-2 d-md-block text-center">
+          <button type="button" class="btn btn-secondary" style="width: 210px;" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary" style="width: 210px;" data-bs-dismiss="modal" (click)="save()" [disabled]="!titulo || !descripcion">Guardar</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<div class="modal fade border" id="editarTarea" tabindex="-1" aria-labelledby="EditarTareaLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="editarTareaLabel">Editar Tarea</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body">
+          <div class="mb-2">
+            <label class="form-label" for="titulo">Nuevo Título:</label>
+            <input type="text" class="form-control" id="titulo" required placeholder="Nuevo título de su tarea:" [(ngModel)]="titulo">
+          </div>
+          <div class="mb-2">
+            <label class="form-label" for="descripcion">Nueva Descripción:</label>
+            <input type="text" class="form-control" id="descripcion" required placeholder="Nueva descripción de su tarea:" [(ngModel)]="descripcion">
+          </div>
+          <div class="mb-4" [ngClass]="{'tarea-completada': completada, 'tarea-no-completada': !completada}">
+            <label class="form-label  mx-2" for="completada">Completada:</label>
+            <input type="checkbox" class="form-check-input" id="completada" [checked]="completada" (change)="estadoTarea($event)">
+          </div>
+        </div>
+        <div class="modal-footer d-grid gap-2 d-md-block text-center">
+          <button type="button" class="btn btn-secondary" style="width: 210px;" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-success" style="width: 210px;" data-bs-dismiss="modal" [disabled]="!titulo || !descripcion" (click)="edit()">Editar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <p class="p-3 h4 text-center mt-auto"><strong>Formulario.component</strong></p>
-<p class="h6 text-center">&#64;Input() titulo</p>
-<p class="h6 text-center">&#64;Input() descripcion</p>
+<p class="h6 text-center">&#64;Input() listaTareas</p>
+<p class="h6 text-center">&#64;Input() set tareaSeleccionarEdicion</p>
 <p class="h6 text-center">&#64;Output() tareaGuardada</p>
-
-
+<p class="h6 text-center">&#64;Output() notificacionAceptarEdicion</p>
+<p class="h6 text-center">&#64;Output() notificarEstadoTarea</p>
