@@ -1,14 +1,25 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-formulario',
-  templateUrl: './formulario.component.html'
+  templateUrl: './formulario.component.html',
+  styleUrl:'./formulario.component.css'
 })
-export class FormularioComponent {
+export class FormularioComponent implements OnInit{
+
+  private  tipoColor = 'ColorType';
+
+  public  tipo: null | string= '';
+
   public titulo: string = '';
   public descripcion: string = '';
   public completada: boolean = false;
+
   id: undefined | number = undefined;
+
+  ngOnInit(): void {
+    this.tipo = localStorage.getItem(this.tipoColor);
+  }
 
   @Input() listaTareas: { id: number, titulo: string, descripcion: string, completada: boolean }[] = [];
   @Input() set tareaSeleccionarEdicion(value: undefined | { id: number, titulo: string, descripcion: string, completada: boolean }) {

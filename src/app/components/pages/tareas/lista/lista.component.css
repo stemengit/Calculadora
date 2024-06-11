@@ -34,11 +34,11 @@ abbr[title]:hover {
   }
 
   .tarea-completada {
-    background-color: green;
+    background-color: rgb(149, 215, 149);
 }
 
 .tarea-no-completada {
-    background-color: red;
+    background-color: rgb(255, 255, 255);
 }
 
 /*

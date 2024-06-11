@@ -19,6 +19,7 @@ export class ConfigurationService {
     document.body.classList.remove('oscuro', 'claro');
     document.body.classList.add(tipo);
     localStorage.setItem(this.tipoColor, tipo);
+
   }
 
   loadConfig() {

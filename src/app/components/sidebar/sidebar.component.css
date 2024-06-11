@@ -57,3 +57,14 @@
   background-color: #c0c0c0;
   color: rgb(0, 0, 0);
 }
+
+
+.oscuro-modal{
+  background-color: black !important;
+  border: 1px solid lightgrey;
+}
+
+.claro-modal{
+  background-color: white !important;
+  border: 1px solid;
+}

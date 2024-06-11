@@ -1,11 +1,11 @@
 <div class="modal fade border" id="nuevaTarea" tabindex="-1" aria-labelledby="nuevaTareaLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content" [ngClass]="{'oscuro-modal':tipo == 'oscuro', 'claro-modal':tipo == 'claro'} ">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="nuevaTareaLabel">Nueva Tarea</h1>
+        <h1 class="modal-title" id="nuevaTareaLabel">Nueva Tarea</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" id="nuevaTareaBody">
         <div class="card-body">
           <div class="mb-2">
             <label class="form-label" for="titulo">Título:</label>
