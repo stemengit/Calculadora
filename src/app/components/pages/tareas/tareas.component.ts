@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tareas',
@@ -8,7 +8,6 @@ export class TareasComponent implements OnInit {
 
   public listaTareas: { id: number, titulo: string, descripcion: string, completada: boolean }[] = [];
 
-  constructor(private renderer: Renderer2) { }
 
   ngOnInit() {
     const tareasGuardadas = JSON.parse(localStorage.getItem('tareas') || '[]');
@@ -24,6 +23,7 @@ export class TareasComponent implements OnInit {
   borrarTarea(id: number) {
     this.listaTareas = this.listaTareas.filter(element => element.id != id);
     localStorage.setItem('tareas', JSON.stringify(this.listaTareas));
+
   }
 
   editarTarea(tarea: { id: number, titulo: string, descripcion: string, completada: boolean }) {
