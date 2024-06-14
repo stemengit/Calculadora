@@ -15,8 +15,8 @@ export class TareasComponent implements OnInit {
     this.listaTareas = tareasGuardadas;
   }
 
-  agregarTarea(tarea: { id: number, titulo: string, descripcion: string }) {
-    const nuevaTarea = { ...tarea, completada: false };
+  agregarTarea(tarea: { id: number, titulo: string, descripcion: string, completada: boolean }) {
+    const nuevaTarea = { ...tarea };
     this.listaTareas.push(nuevaTarea);
     localStorage.setItem('tareas', JSON.stringify(this.listaTareas));
   }

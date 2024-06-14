@@ -1,11 +1,12 @@
-<div class="modal fade border" id="nuevaTarea" tabindex="-1" aria-labelledby="nuevaTareaLabel" aria-hidden="true">
+<div class="modal fade border" id="guardarTarea" tabindex="-1" aria-labelledby="guardarTareaLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content" [ngClass]="{'oscuro-modal':tipo == 'oscuro', 'claro-modal':tipo == 'claro'} ">
       <div class="modal-header">
-        <h1 class="modal-title" id="nuevaTareaLabel">Nueva Tarea</h1>
+        <h1 *ngIf="id === undefined" class="modal-title" id="guardarTareaLabel">Nueva Tarea</h1>
+        <h1 *ngIf="id !== undefined" class="modal-title" id="guardarTareaLabel">Editar Tarea</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body" id="nuevaTareaBody">
+      <div class="modal-body" id="guardarTareaBody">
         <div class="card-body">
           <div class="mb-2">
             <label class="form-label" for="titulo">Título:</label>
@@ -22,14 +23,14 @@
         </div>
         <div class="modal-footer d-grid gap-2 d-md-block text-center">
           <button type="button" class="btn btn-secondary" style="width: 210px;" data-bs-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-primary" style="width: 210px;" data-bs-dismiss="modal" (click)="save()" [disabled]="!titulo || !descripcion">Guardar</button>
+          <button type="submit" class="btn btn-primary" style="width: 210px;" data-bs-dismiss="modal" (click)="guardarTarea()" [disabled]="!titulo || !descripcion">Guardar</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="modal fade border" id="editarTarea" tabindex="-1" aria-labelledby="EditarTareaLabel" aria-hidden="true">
+<!-- <div class="modal fade border" id="editarTarea" tabindex="-1" aria-labelledby="EditarTareaLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -43,8 +44,8 @@
             <input type="text" class="form-control" id="titulo" required placeholder="Nuevo título de su tarea:" [(ngModel)]="titulo">
           </div>
           <div class="mb-2">
-            <label class="form-label" for="descripcion">Nueva Descripción:</label>
-            <input type="text" class="form-control" id="descripcion" required placeholder="Nueva descripción de su tarea:" [(ngModel)]="descripcion">
+            <label class="form-label" for="descripcion">guardar Descripción:</label>
+            <input type="text" class="form-control" id="descripcion" required placeholder="guardar descripción de su tarea:" [(ngModel)]="descripcion">
           </div>
           <div class="mb-4" [ngClass]="{'tarea-completada': completada, 'tarea-no-completada': !completada}">
             <label class="form-label  mx-2" for="completada">Completada:</label>
@@ -58,7 +59,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
 <p class="p-3 h4 text-center mt-auto"><strong>Formulario.component</strong></p>

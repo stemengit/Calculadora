@@ -3,13 +3,13 @@ import { Component, Input, Output, EventEmitter, ViewEncapsulation, OnInit } fro
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
-  styleUrl:'./formulario.component.css'
+  styleUrl: './formulario.component.css'
 })
-export class FormularioComponent implements OnInit{
+export class FormularioComponent implements OnInit {
 
-  private  tipoColor = 'ColorType';
+  private tipoColor = 'ColorType';
 
-  public  tipo: null | string= '';
+  public tipo: null | string = '';
 
   public titulo: string = '';
   public descripcion: string = '';
@@ -23,6 +23,7 @@ export class FormularioComponent implements OnInit{
 
   @Input() listaTareas: { id: number, titulo: string, descripcion: string, completada: boolean }[] = [];
   @Input() set tareaSeleccionarEdicion(value: undefined | { id: number, titulo: string, descripcion: string, completada: boolean }) {
+    console.log(value)
     if (value) {
       this.titulo = value.titulo;
       this.descripcion = value.descripcion;
@@ -39,16 +40,10 @@ export class FormularioComponent implements OnInit{
     const date = new Date();
     const id = date.getTime();
     this.tareaGuardada.emit({ id, titulo: this.titulo, descripcion: this.descripcion, completada: this.completada });
-    this.titulo = '';
-    this.descripcion = '';
-    this.completada = false;
   }
 
   edit() {
     this.notificacionAceptarEdicion.emit({ id: this.id!, titulo: this.titulo, descripcion: this.descripcion, completada: this.completada });
-    this.titulo = '';
-    this.descripcion = '';
-    this.completada = false;
   }
 
   estadoTarea(event: Event): void {
@@ -56,4 +51,20 @@ export class FormularioComponent implements OnInit{
     this.completada = checkbox.checked;
     this.notificarEstadoTarea.emit({ id: this.id!, completada: this.completada });
   }
+
+  guardarTarea(): void {
+    if (this.id !== undefined) this.edit()
+    else this.save();
+    this.limpiarformulario();
+  }
+
+  limpiarformulario(){
+    this.id = undefined;
+    this.titulo = '';
+    this.descripcion = '';
+    this.completada = false;
+  }
+
+
+
 }
