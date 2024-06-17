@@ -23,7 +23,6 @@ export class TareasComponent implements OnInit {
   borrarTarea(id: number) {
     this.listaTareas = this.listaTareas.filter(element => element.id != id);
     localStorage.setItem('tareas', JSON.stringify(this.listaTareas));
-
   }
 
   editarTarea(tarea: { id: number, titulo: string, descripcion: string, completada: boolean }) {

@@ -13,18 +13,12 @@ export class FormularioComponent implements OnInit {
 
   public tipo: null | string = '';
 
-  public titulo: string = '';
-  public descripcion: string = '';
-  public completada: boolean = false;
-
   public myForm: FormGroup = this.fb.group({
-    name: ['', [Validators.required]],
-    description: ['', [Validators.required]],
-    complete: [boolean, [Validators.required]],
+    titulo: ['', [Validators.required]],
+    descripcion: ['', [Validators.required]],
+    completada: [false],
+    id: [null]
   })
-
-
-  id: undefined | number = undefined;
 
   ngOnInit(): void {
     this.tipo = localStorage.getItem(this.tipoColor);
@@ -37,10 +31,10 @@ export class FormularioComponent implements OnInit {
   @Input() set tareaSeleccionarEdicion(value: undefined | { id: number, titulo: string, descripcion: string, completada: boolean }) {
     console.log(value)
     if (value) {
-      this.titulo = value.titulo;
-      this.descripcion = value.descripcion;
-      this.id = value.id;
-      this.completada = value.completada;
+      this.myForm.get('titulo')!.setValue(value.titulo);
+      this.myForm.get('descripcion')!.setValue(value.descripcion);
+      this.myForm.get('completada')!.setValue(value.completada);
+      this.myForm.get('id')!.setValue(value.id);
     }
   }
 
@@ -50,13 +44,13 @@ export class FormularioComponent implements OnInit {
 
 
   edit() {
-    this.notificacionAceptarEdicion.emit({ id: this.id!, titulo: this.titulo, descripcion: this.descripcion, completada: this.completada });
+    this.notificacionAceptarEdicion.emit({ id: this.myForm.get('id')!.value, titulo: this.myForm.get('titulo')!.value, descripcion: this.myForm.get('descripcion')!.value, completada: this.myForm.get('completada')!.value });
   }
 
   estadoTarea(event: Event): void {
     const checkbox = event.target as HTMLInputElement;
-    this.completada = checkbox.checked;
-    this.notificarEstadoTarea.emit({ id: this.id!, completada: this.completada });
+    this.myForm.get('completada')!.setValue(checkbox.checked);
+    this.notificarEstadoTarea.emit({ id: this.myForm.get('id')!.value, completada: this.myForm.get('completada')!.value });
   }
 
 
@@ -84,35 +78,36 @@ export class FormularioComponent implements OnInit {
 
 
 
+
   onSave(): void {
+
+
     if (this.myForm.invalid) {
-      this.myForm.markAllAsTouched();
       return;
     }
 
     const date = new Date();
     const id = date.getTime();
 
-    if (this.id === undefined) {
-      this.tareaGuardada.emit({ id, titulo: this.titulo, descripcion: this.descripcion, completada: this.completada });
+    if (this.myForm.get('id')!.value === null) {
+      this.tareaGuardada.emit({ id, titulo: this.myForm.get('titulo')!.value, descripcion: this.myForm.get('descripcion')!.value, completada: this.myForm.get('completada')!.value });
       console.log('creada', this.myForm.value);
     } else {
       this.edit();
       console.log('editada', this.myForm.value);
     }
 
-    this.completada = false;
+    // this.completada = false;
     this.limpiarformulario();
   }
 
-
   limpiarformulario() {
-    this.id = undefined;
-    this.titulo = '';
-    this.descripcion = '';
-    this.myForm.reset({ name: '', description: '', complete: false  });
-    this.myForm.markAsPristine();
-    this.myForm.markAsUntouched()
+
+    setTimeout(() => {
+      this.myForm.reset({ name: '', description: '', id: null, complete: false });
+      this.myForm.markAsPristine();
+      this.myForm.markAsUntouched()
+    },250)
   }
 
 }

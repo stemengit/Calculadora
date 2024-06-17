@@ -1,40 +1,39 @@
-<form [formGroup]="myForm" (ngSubmit)="onSave()">
+<form [formGroup]="myForm" (ngSubmit)="onSave()" autocomplete="off">
   <div class="modal fade border" data-bs-backdrop="static" id="guardarTarea" tabindex="-1" aria-labelledby="guardarTareaLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content" [ngClass]="{'oscuro-modal':tipo == 'oscuro', 'claro-modal':tipo == 'claro'} ">
         <div class="modal-header">
 
-          <h1 *ngIf="id === undefined" class="modal-title" id="guardarTareaLabel">Nueva Tarea</h1>
+          <h1 *ngIf="myForm.get('id')!.value==null" class="modal-title" id="guardarTareaLabel">Nueva Tarea</h1>
+          <h1 *ngIf="myForm.get('id')!.value!=null" class="modal-title" id="guardarTareaLabel">Editar Tarea</h1>
 
-          <h1 *ngIf="id !== undefined" class="modal-title" id="guardarTareaLabel">Editar Tarea</h1>
-
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="limpiarformulario()"></button>
         </div>
         <div class="modal-body" id="guardarTareaBody">
           <div class="card-body">
 
             <div class="mb-2">
               <label class="form-label" for="titulo">Título:</label>
-              <input type="text" class="form-control" formControlName="name" id="titulo" placeholder="Título de su tarea:" [(ngModel)]="titulo">
-              <span *ngIf="isValidField('name')" class="form-text text-danger">Rellena este campo</span>
+              <input type="text" class="form-control" formControlName="titulo" id="titulo" placeholder="Título de su tarea:">
+              <span *ngIf="isValidField('titulo')" class="form-text text-danger">Rellena este campo</span>
             </div>
 
             <div class="mb-2">
               <label class="form-label" for="descripcion">Descripción:</label>
-              <input type="text" class="form-control" formControlName="description" id="descripcion" required placeholder="Descripción de su tarea:" [(ngModel)]="descripcion">
-              <span *ngIf="isValidField('description')" class="form-text text-danger">Rellena este campo</span>
+              <input type="text" class="form-control" formControlName="descripcion" id="descripcion" required placeholder="Descripción de su tarea:">
+              <span *ngIf="isValidField('descripcion')" class="form-text text-danger">Rellena este campo</span>
             </div>
 
             <div class="mb-4" >
               <label class="form-label mx-2" for="completada" >Completada:</label>
-              <input type="checkbox" class="form-check-input" formControlName="complete" id="completada" [(ngModel)]="completada">
+              <input type="checkbox" class="form-check-input" formControlName="completada" id="completada">
             </div>
           </div>
           <div class="modal-footer d-grid gap-2 d-md-block text-center">
             <button type="button" class="btn btn-secondary" style="width: 210px;" data-bs-dismiss="modal" (click)="limpiarformulario()" >Cancelar</button>
 
-            <button *ngIf="!myForm.valid" type="submit" class="btn btn-primary" style="width: 210px;" >Guardar</button>
-            <button *ngIf="myForm.valid" type="submit" class="btn btn-primary" style="width: 210px;" data-bs-dismiss="modal" >Guardar</button>
+            <!-- <button  type="submit" class="btn btn-primary" style="width: 210px;" >Guardar</button> -->
+            <button [disabled] = "myForm.invalid" type="submit" class="btn btn-primary" style="width: 210px;" data-bs-dismiss="modal" >Guardar</button>
 
           </div>
         </div>

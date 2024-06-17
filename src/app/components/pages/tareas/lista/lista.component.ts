@@ -7,7 +7,8 @@ import { Component, Input, Output, EventEmitter, Renderer2 } from '@angular/core
 })
 export class ListaComponent {
 
-  public tareaSeleccionada: undefined | { id: number, titulo: string, descripcion: string, completada: boolean } = undefined;
+  public tareaSeleccionadaborrar: undefined | { id: number, titulo: string, descripcion: string, completada: boolean } = undefined;
+  public tareaSeleccionadaeditar: undefined | { id: number, titulo: string, descripcion: string, completada: boolean } = undefined;
 
 
   @Input() listaTareas: { id: number, titulo: string, descripcion: string, completada: boolean }[] = [];
@@ -25,14 +26,20 @@ export class ListaComponent {
 
   borrarTareaLista($event: number) {
     this.notificarEliminacionTarea.emit($event)
+    this.tareaSeleccionadaborrar = undefined;
   }
 
   editarTareaLista($event: { id: number; titulo: string; descripcion: string; completada: boolean; }) {
     this.notificarEdicionTarea.emit($event)
+    this.tareaSeleccionadaeditar = undefined;
   }
 
-  seleccionarTarea(index: number) {
-    this.tareaSeleccionada = this.listaTareas[index];
+  seleccionarTareaBorrar(index: number) {
+    this.tareaSeleccionadaborrar = this.listaTareas[index];
+  }
+
+  seleccionarTareaEditar(index: number) {
+    this.tareaSeleccionadaeditar = this.listaTareas[index];
   }
 
   estadoTarea(event: Event, tareaId: number): void {
