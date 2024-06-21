@@ -10,12 +10,4 @@
   background-color: red;
 }
 
-.oscuro-modal{
-  background-color: black !important;
-  border: 1px solid lightgrey;
-}
 
-.claro-modal{
-  background-color: white !important;
-  border: 1px solid;
-}

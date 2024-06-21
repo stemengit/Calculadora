@@ -1,7 +1,7 @@
 <form [formGroup]="myForm" (ngSubmit)="onSave()" autocomplete="off">
   <div class="modal fade border" data-bs-backdrop="static" id="guardarTarea" tabindex="-1" aria-labelledby="guardarTareaLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content" [ngClass]="{'oscuro-modal':tipo == 'oscuro', 'claro-modal':tipo == 'claro'} ">
+      <div class="modal-content">
         <div class="modal-header">
 
           <h1 *ngIf="myForm.get('id')!.value==null" class="modal-title" id="guardarTareaLabel">Nueva Tarea</h1>

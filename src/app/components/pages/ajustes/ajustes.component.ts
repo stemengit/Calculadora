@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { ConfigurationService } from '../../../services/configuration.service';
+import { ConfigurationThemeService } from '../../../services/configuration-theme.service';
+import { ConfigurationSizeService } from '../../../services/configuration-size.service';
+
 
 @Component({
   selector: 'app-ajustes',
@@ -8,18 +10,22 @@ import { ConfigurationService } from '../../../services/configuration.service';
 })
 export class AjustesComponent {
 
-  constructor(private configService: ConfigurationService) {}
+  constructor(
+    private configThemeService: ConfigurationThemeService,
+    private configSizeService: ConfigurationSizeService
+  ) {}
 
   ngOnInit() {
-    this.configService.loadConfig();
+    this.configThemeService.loadConfig();
+    this.configSizeService.loadConfig();
   }
 
   changeSize(size: string) {
-    this.configService.changeSize(size);
+    this.configSizeService.changeSize(size);
   }
 
   changeTipo(tipo: string) {
-    this.configService.changeTipo(tipo);
+    this.configThemeService.changeTipo(tipo);
   }
 
   isSizeSelected(size: string): boolean {

@@ -3,9 +3,8 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class ConfigurationService {
+export class ConfigurationSizeService {
   private  sizeFuente = 'FontSize';
-  private  tipoColor = 'ColorType';
 
   constructor() {}
 
@@ -15,23 +14,14 @@ export class ConfigurationService {
     localStorage.setItem(this.sizeFuente, size);
   }
 
-  changeTipo(tipo: string) {
-    document.body.classList.remove('oscuro', 'claro');
-    document.body.classList.add(tipo);
-    localStorage.setItem(this.tipoColor, tipo);
 
-  }
 
   loadConfig() {
     const savedSize = localStorage.getItem(this.sizeFuente);
-    const savedTipo = localStorage.getItem(this.tipoColor);
 
     if (savedSize) {
       this.changeSize(savedSize);
     }
 
-    if (savedTipo) {
-      this.changeTipo(savedTipo);
-    }
   }
 }

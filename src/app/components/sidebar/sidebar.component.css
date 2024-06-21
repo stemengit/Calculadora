@@ -1,3 +1,7 @@
+#menu{
+  display: block;
+}
+
 .menu, .calculator, .history {
   flex: 1;
   display: flex;

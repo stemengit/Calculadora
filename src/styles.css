@@ -30,42 +30,93 @@ html, body {
 
 
 .tamaño1 {
-  font-size: 12px;
-}
-
-.tamaño1 h1, .tamaño1 h2, .tamaño1 h3, .tamaño1 h4, .tamaño1 h5, .tamaño1 h6,
-.tamaño1 p, .tamaño1 div, .tamaño1 span, .tamaño1 a, .tamaño1 input, .tamaño1 button {
-  font-size: inherit;
+  --bs-body-font-size: 12px !important;
+  p , div, span , a , input , button, label {
+    font-size: 12px;
+  }
+  h1{font-size: 16px;}
+  h4{font-size: 14px;}
 }
 
 .tamaño2 {
-  font-size: 16px;
-}
-
-.tamaño2 h1, .tamaño2 h2, .tamaño2 h3, .tamaño2 h4, .tamaño2 h5, .tamaño2 h6,
-.tamaño2 p, .tamaño2 div, .tamaño2 span, .tamaño2 a, .tamaño2 input, .tamaño2 button {
-  font-size: inherit;
+  --bs-body-font-size: 16px !important;
+  p , div, span , a , input , button , label {
+    font-size: 16px;
+  }
+  h1{font-size: 20px;}
+  h4{font-size: 18px;}
 }
 
 .tamaño3 {
-  font-size: 20px;
-}
-
-.tamaño3 h1, .tamaño3 h2, .tamaño3 h3, .tamaño3 h4, .tamaño3 h5, .tamaño3 h6,
-.tamaño3 p, .tamaño3 div, .tamaño3 span, .tamaño3 a, .tamaño3 input, .tamaño3 button {
-  font-size: inherit;
+  --bs-body-font-size: 20px !important;
+  p , div, span , a , input , button , label {
+    font-size: 20px;
+  }
+  h1{font-size: 24px;}
+  h4{font-size: 22px;}
 }
 
 .oscuro {
-  background-color: black;
-  color: white;
+  --bs-body-bg: rgb(43, 43, 43);
+  --bs-body-color: white;
+  /* background-color: black; */
+  /* color: white; */
+  .modal-content{
+    background-color: rgb(43, 43, 43) !important;
+    border: 1px solid lightgrey;
+  }
+  .list-group-item{
+    color: white !important;
+  }
+  .form-control::placeholder {
+    color: rgb(220, 220, 220) !important;
+    opacity: 1 !important; /* Firefox */
+  }
+  .form-control::-ms-input-placeholder { /* Edge 12 -18 */
+    color: rgb(220, 220, 220);;
+  }
+  .navbar-toggler{
+    background-color: grey;
+  }
+
 }
 
+.navbar-toggler {
+  --bs-navbar-toggler-focus-width: 0,15rem;
+  --bs-navbar-toggler-border-color: rgb(174, 174, 174);
+}
 
 .claro {
-  background-color: #f0f0f0;
-  color: black;
+  --bs-body-bg: rgb(255, 255, 255);
+  --bs-body-color: rgb(36, 36, 36);
+  .modal-content{
+    background-color: white !important;
+    border: 1px solid;
+  }
+  .list-group-item{
+    color: rgb(0, 0, 0) !important;
+  }
+  .list-group-item.active{
+    color: rgb(255, 255, 255) !important;
+  }
+  .form-control::placeholder {
+    color: rgb(0, 0, 0) !important;
+    opacity: 0.6 !important; /* Firefox */
+  }
+  .form-control::-ms-input-placeholder { /* Edge 12 -18 */
+    color: rgb(0, 0, 0) !important;
+    opacity: 0.6 !important;
+  }
+
 }
+
+
+
+
+
+
+
+
 
 
 

@@ -33,29 +33,11 @@ abbr[title]:hover {
   text-decoration-color: #666;
   }
 
-  .tarea-completada {
+.tarea-completada {
     background-color: rgb(149, 215, 149);
 }
 
-.tarea-no-completada {
-    background-color: rgb(255, 255, 255);
-}
 
-/*
-abbr[title]:hover::after {
-  content: attr(title);
-  position: absolute;
-  background-color: #a9a9a9;
-  padding: 5px;
-  font-size: 12px;
-  font-style: italic;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  z-index: 1;
-}
-
-*/
 
 
 
